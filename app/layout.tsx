@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import { HeaderNav } from "./_components/HeaderNav";
+import { FooterNav } from "./_components/FooterNav";
 
 const inter = Rubik({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <HeaderNav>{children}</HeaderNav>
+        <HeaderNav title={"Home"}></HeaderNav>
+        {children}
+        <FooterNav></FooterNav>
       </body>
     </html>
   );
