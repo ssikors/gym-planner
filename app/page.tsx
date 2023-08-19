@@ -1,4 +1,4 @@
-import { LogInScreen } from "./_components/LogInScreen";
+import LogInScreen from "./_components/LogInScreen";
 
 export default function LogIn() {
   return (
