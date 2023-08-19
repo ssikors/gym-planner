@@ -8,10 +8,9 @@ export default async function Home() {
 
   return (
     <>
-      <HeaderNav title={"Home"}></HeaderNav>
+      <HeaderNav title={"Templates"}></HeaderNav>
       <div className="flex min-h-screen flex-col items-center p-24 text-white">
-        <h1 className=" text-xl">Home</h1>
-        <div>Your email: {session?.user?.email}</div>
+        <h1 className=" text-xl">Templates</h1>
       </div>
     </>
   );
