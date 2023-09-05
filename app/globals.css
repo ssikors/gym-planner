@@ -1,15 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-:root {
-  background: linear-gradient(180deg, #303535 33.85%, #343535 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-h1 {
-  font-size: xx-large;
-}
