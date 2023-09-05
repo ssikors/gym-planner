@@ -5,7 +5,7 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function RegisterPage() {
+export default function SignInPage() {
   const router = useRouter();
   const [data, setData] = useState({
     name: "",

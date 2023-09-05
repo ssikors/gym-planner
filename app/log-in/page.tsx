@@ -18,7 +18,7 @@ export default function LoginPage() {
 
     signIn("credentials", {
       ...data,
-      redirect: false,
+      callbackUrl: '/my-profile'
     })
     // No logic here, it is defined in [...nextauth]/route.ts instead
 

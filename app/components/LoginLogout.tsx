@@ -14,9 +14,9 @@ export const LoginLogout: React.FC<Props> = () => {
         {status === "loading" ? (
           "Loading..."
         ) : status === "unauthenticated" ? (
-          <div>
+          <div className="flex flex-row gap-8">
             <div>
-              <Link href="/register">Register</Link>
+              <Link href="/signin">Register</Link>
             </div>
             <div>
               <Link href="/log-in">Log in</Link>
