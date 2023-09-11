@@ -11,7 +11,7 @@ export const LoginStatusWrapper: React.FC<Props> = ({ children }) => {
   const { status } = useSession()
 
   if (status === "loading") {
-    return <div className="flex w-full h-screen justify-center items-center text-center"><p>Loading...</p></div>
+    return <div className="flex w-full h-screen justify-center items-center text-center text-3xl text-white bg-slate-700"><p>Loading...</p></div>
   }
 
   if (status === "authenticated") {
