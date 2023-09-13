@@ -34,7 +34,7 @@ export default function MyProfile() {
   return (
     <LoginStatusWrapper>
       <div className="w-full mt-24 flex flex-col text-white bg-slate-700  min-h-screen h-full items-center justify-start">
-        <Header currentPage="My Profile" />
+        <Header currentPage="Templates" />
         <h1 className="text-2xl mt-12">Your Templates:</h1>
         <div className="flex flex-col">
           <WorkoutTemplate
