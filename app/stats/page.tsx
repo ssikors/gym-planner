@@ -13,7 +13,7 @@ export default function MyProfile() {
   return (
     <LoginStatusWrapper>
       <div className="w-full flex flex-col text-white bg-slate-700 min-h-screen h-full items-center justify-center">
-        <Header currentPage="My Profile" />
+        <Header currentPage="Statistics" />
         <h1 className="text-2xl">Statistics</h1>
         <div className="flex flex-row"></div>
 
