@@ -4,22 +4,22 @@ datasource db {
 }
 
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 model Account {
-  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String  @db.ObjectId
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?
-  access_token       String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -35,12 +35,49 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
-  hashedPassword String?
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  name              String?
+  email             String   @unique
+  hashedPassword    String?
+  emailVerified     DateTime?
+  image             String?
+  accounts          Account[]
+  sessions          Session[]
+  templates         Template[]
+  excerciseRecords  ExcerciseRecord[]
+}
+
+model Excercise {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  excerciseBlocks ExcerciseBlock[]
+  excerciseRecords ExcerciseRecord[]
+}
+
+model Template {
+  id                 String @id @default(auto()) @map("_id") @db.ObjectId
+  title              String
+  userEmail          String
+  user               User     @relation(fields: [userEmail], references: [email], onDelete: Cascade)
+  excerciseBlocks    ExcerciseBlock[]
+}
+
+model ExcerciseBlock {
+  id                     String @id @default(auto()) @map("_id") @db.ObjectId
+  templateId             String @db.ObjectId
+  template               Template @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  numberOfSets           Int
+  excerciseId            String @db.ObjectId
+  excercise              Excercise @relation(fields: [excerciseId], references: [id], onDelete: Cascade)
+  lastRecord             String
+}
+
+model ExcerciseRecord {
+  id                     String @id @default(auto()) @map("_id") @db.ObjectId
+  record                 String
+  numberOfSets           Int
+  excerciseId            String @db.ObjectId
+  excercise              Excercise @relation(fields: [excerciseId], references: [id], onDelete: Cascade)
+  userEmail              String
+  user                   User     @relation(fields: [userEmail], references: [email], onDelete: Cascade)
 }
