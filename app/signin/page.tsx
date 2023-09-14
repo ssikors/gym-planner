@@ -15,6 +15,7 @@ export default function SignInPage() {
 
   const registerUser = async (e: React.MouseEvent) => {
     e.preventDefault();
+    console.log(JSON.stringify({ data }))
     const response = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,7 +46,7 @@ export default function SignInPage() {
           <form className="space-y-6" action="#" method="POST">
             <div>
               <label
-                htmlFor="email"
+                htmlFor="name"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Name
