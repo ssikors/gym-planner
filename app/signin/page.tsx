@@ -15,6 +15,7 @@ export default function SignInPage() {
 
   const registerUser = async (e: React.MouseEvent) => {
     e.preventDefault();
+    console.log(JSON.stringify({ data }))
     const response = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

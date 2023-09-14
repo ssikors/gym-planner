@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const LoginStatusWrapper: React.FC<Props> = ({ children }) => {
-  const { status } = useSession()
+  const { status, data } = useSession()
 
   if (status === "loading") {
     return <div className="flex w-full h-screen justify-center items-center text-center text-3xl text-white bg-slate-700"><p>Loading...</p></div>
