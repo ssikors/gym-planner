@@ -1,8 +1,23 @@
+'use client'
+
 import { LoginStatusWrapper } from "@/app/components/LoginStatusWrapper";
 import { Header } from "@/app/components/Header";
 import { Footer } from "@/app/components/Footer";
+import prisma from "@/server/db/client";
+import { useEffect, useState } from "react";
+import { Excercise } from "@/app/admin-page/page";
 
 export default function NewTemplate() {
+
+  const getExcercises = async () => {
+    const response = await fetch("/api/get-excercises", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const data = await response.json()
+    console.log(data)
+  }
 
   return (
     <LoginStatusWrapper>
@@ -10,6 +25,7 @@ export default function NewTemplate() {
         <Header currentPage="Templates" />
         <h1 className="text-2xl mt-12">Add excercises to your template:</h1>
         <div className="flex flex-col items-center">
+          <button onClick={getExcercises}>Get Excercises</button>
         </div>
         <Footer />
       </div>
