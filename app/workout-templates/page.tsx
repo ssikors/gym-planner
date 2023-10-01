@@ -1,14 +1,9 @@
-"use client";
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { LoginStatusWrapper } from "../components/LoginStatusWrapper";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { WorkoutTemplate } from "../components/workout-templates/WorkoutTemplate";
 import Link from "next/link";
-
-import { ExcerciseSets } from "../components/workout-templates/WorkoutTemplate";
 
 const excercises = [
   {
@@ -29,8 +24,6 @@ const excercises = [
 ];
 
 export default function MyProfile() {
-  const router = useRouter();
-  const { status, data } = useSession();
 
   return (
     <LoginStatusWrapper>
