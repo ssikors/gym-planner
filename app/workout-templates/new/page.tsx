@@ -3,7 +3,7 @@
 import { LoginStatusWrapper } from "@/app/components/LoginStatusWrapper";
 import { Header } from "@/app/components/Header";
 import { Footer } from "@/app/components/Footer";
-import prisma from "@/server/db/client";
+import { TemplateEdit } from "@/app/components/workout-templates/TemplateEdit";
 import { useEffect, useState } from "react";
 import { Excercise } from "@/app/admin-page/page";
 
@@ -26,7 +26,8 @@ export default function NewTemplate() {
     <LoginStatusWrapper>
       <div className="w-full mt-24 flex flex-col text-white bg-slate-700  min-h-screen h-full items-center justify-start">
         <Header currentPage="Templates" />
-        <h1 className="text-2xl mt-12">Add excercises to your template:</h1>
+
+        <TemplateEdit excercises={excercises} />
         <Footer />
       </div>
     </LoginStatusWrapper>
