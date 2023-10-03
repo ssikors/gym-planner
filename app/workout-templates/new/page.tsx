@@ -8,6 +8,9 @@ import { useEffect, useState } from "react";
 import { Excercise } from "@/app/admin-page/page";
 
 export default function NewTemplate() {
+  const [excercises, setExcercises] = useState<Excercise[]>([])
+
+  useEffect(() => { getExcercises() }, [])
 
   const getExcercises = async () => {
     const response = await fetch("/api/get-excercises", {
@@ -16,7 +19,7 @@ export default function NewTemplate() {
     });
 
     const data = await response.json()
-    console.log(data)
+    setExcercises(data)
   }
 
   return (
