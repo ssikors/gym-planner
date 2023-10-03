@@ -27,9 +27,6 @@ export default function NewTemplate() {
       <div className="w-full mt-24 flex flex-col text-white bg-slate-700  min-h-screen h-full items-center justify-start">
         <Header currentPage="Templates" />
         <h1 className="text-2xl mt-12">Add excercises to your template:</h1>
-        <div className="flex flex-col items-center">
-          <button onClick={getExcercises}>Get Excercises</button>
-        </div>
         <Footer />
       </div>
     </LoginStatusWrapper>
