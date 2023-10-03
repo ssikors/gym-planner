@@ -1,15 +1,43 @@
-import { Excercise } from "@/app/admin-page/page"
+import { Excercise } from "@/app/admin-page/page";
 
 type Props = {
-  nOfSets: number
-  excerciseSelected: string
+  id: number;
+  nOfSets: number;
+  excerciseSelected: string;
   excercises: Excercise[];
-}
+  setSets: Function;
+};
 
-export const EditExcerciseSet: React.FC<Props> = ({nOfSets, excerciseSelected, excercises}) => {
-  return <div className="flex flex-row justify-between">
-    <div>{excerciseSelected}</div>
-    <div>x</div>
-    <div>{nOfSets} sets</div>
-  </div>
-}
+export const EditExcerciseSet: React.FC<Props> = ({
+  id,
+  nOfSets,
+  excerciseSelected,
+  excercises,
+  setSets,
+}) => {
+  return (
+    <div className="flex flex-row justify-between">
+      <div>{excerciseSelected}</div>
+      <div>x</div>
+      <div className="flex flex-row item-center justify-center">
+        <label htmlFor="sets" className="">
+          Sets
+        </label>
+        <div className="text-black">
+          <input
+            id="sets"
+            name="sets"
+            type="number"
+            value={nOfSets}
+            onChange={(e) => {
+              e.preventDefault();
+              setSets(e.target.value, id);
+            }}
+            required
+            className="ml-2"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
