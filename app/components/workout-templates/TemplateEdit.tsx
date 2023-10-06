@@ -17,6 +17,17 @@ export const TemplateEdit: React.FC<Props> = ({ excercises }) => {
     { key: 1, nOfSets: 0, excerciseSelected: "" },
   ]);
 
+  const deleteExcercise = (id: number) => {
+    let excerciseSetsCopy = [...excerciseSets]
+    for (let i = 0; i < excerciseSetsCopy.length; i++ ) {
+      if (excerciseSetsCopy[i].key === id) {
+        delete excerciseSetsCopy[i]
+      }
+    }
+
+    setExcerciseSets(excerciseSetsCopy)
+  }
+
   const setExcerciseSelected = (excercise: string, id: number) => {
     let excerciseSetsCopy = [...excerciseSets]
     let item
@@ -69,6 +80,7 @@ export const TemplateEdit: React.FC<Props> = ({ excercises }) => {
                 excercises={excercises}
                 setSets={setSets}
                 setExcerciseSelected={setExcerciseSelected}
+                deleteExcercise={deleteExcercise}
               />
             </li>
           );

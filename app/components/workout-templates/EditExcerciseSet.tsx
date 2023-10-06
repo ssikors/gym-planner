@@ -7,6 +7,7 @@ type Props = {
   excercises: Excercise[];
   setSets: Function;
   setExcerciseSelected: Function;
+  deleteExcercise: Function
 };
 
 export const EditExcerciseSet: React.FC<Props> = ({
@@ -16,17 +17,23 @@ export const EditExcerciseSet: React.FC<Props> = ({
   excercises,
   setSets,
   setExcerciseSelected,
+  deleteExcercise
 }) => {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between items-center text-center">
+      <button onClick={(e)=>{
+        e.preventDefault();
+        deleteExcercise(id)}} className=" font-mono text-xl scale-150 hover:scale-[175%] mb-1 text-red-700 font-extrabold">
+        x
+      </button>
       <div className=" text-black mx-2">
         <select
           id="excercise"
           name="excercise"
           value={excerciseSelected}
           onChange={(e) => {
-            e.preventDefault()
-            setExcerciseSelected(e.target.value, id)
+            e.preventDefault();
+            setExcerciseSelected(e.target.value, id);
           }}
           required
           className="p-1"
